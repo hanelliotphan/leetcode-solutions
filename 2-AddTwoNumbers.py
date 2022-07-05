@@ -9,8 +9,8 @@ class Solution:
         """
         Logic: Mathematical Approach with Carry Flag
         
-        Time Complexity: O(max(m,n))
-        Space Complexity: O(max(m,n))
+        Time: O(max(m,n))
+        Space: O(max(m,n))
         """    
         p = l1
         q = l2
