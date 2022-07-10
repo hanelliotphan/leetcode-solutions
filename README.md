@@ -1,2 +1,9 @@
-# Leetcode-Solutions
-[Updating daily] My Leetcode Solutions
+# Leetcode Solutions
+
+## Brief Description
+This is the collection of my solutions for Leetcode problems. They might not be 
+the most optimal ways to solve the problems, but it is honest work :) Feel free 
+to use them as your referrences for logic of used algorithms and data structures.
+
+## Dedication
+I dedicate this hard work commitment to my Mom and my love TMS.
