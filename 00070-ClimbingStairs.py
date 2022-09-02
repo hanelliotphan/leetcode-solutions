@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/climbing-stairs/
+
 class Solution:
     def climbStairs(self, n: int) -> int:
         """
@@ -6,8 +8,6 @@ class Solution:
         
         Time: O(n)
         Space: O(1)
-        
-        Reference: https://www.youtube.com/watch?v=Y0lT9Fck7qI
         """
         curr, prev = 1, 1
         
