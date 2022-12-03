@@ -3,9 +3,7 @@
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         """
-        Logic: Have a helper to change from current string number
-                to integer, then multiply the two numbers together 
-                and convert to strings
+        Logic: Brute Force with ord()
         
         Time: O(m+n)
         Space: O(1)
