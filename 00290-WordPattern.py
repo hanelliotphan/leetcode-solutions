@@ -1,7 +1,7 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         """
-        Logic: Straightforward
+        Logic: Hash Map
         
         Time: O(n)
         Space: O(n)
