@@ -5,7 +5,7 @@ class Solution:
         """
         Logic: Brute Force
         
-        Time: O(n^2)
+        Time: O(m*n)
         Space: O(1)
         """
         res = []
