@@ -6,7 +6,7 @@ class Solution:
         Logic: Hash Map
 
         Time: O(n * max(counter.values()))
-        Space: O(1) --> need to return 2D array, no extra space needed
+        Space: O(n)
         """
         counter = collections.Counter(nums)
         res = [[0] for _ in range(max(list(counter.values())))]
