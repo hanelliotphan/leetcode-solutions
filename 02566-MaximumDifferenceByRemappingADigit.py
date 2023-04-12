@@ -5,8 +5,8 @@ class Solution:
         """
         Logic: Brute Force - Replace max with 9s and min with 0s
 
-        Time: O(1)
-        Space: O(1)
+        Time: O(n)
+        Space: O(n)
         """
         str_num = str(num)
         i = 0
