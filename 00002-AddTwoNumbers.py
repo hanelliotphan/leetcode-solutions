@@ -14,23 +14,25 @@ class Solution:
         Time: O(max(m,n))
         Space: O(max(m,n))
         """    
-        p = l1
-        q = l2
         dummy = ListNode()
+        head = dummy
         carry = 0
-        curr = dummy
+
+        while l1 or l2:
+            a = l1.val if l1 else 0
+            b = l2.val if l2 else 0
+            total = a + b + carry
+            if total >= 10:
+                carry = 1
+                total -= 10
+            else:
+                carry = 0
+            head.next = ListNode(total)
+            head = head.next
+            if l1: l1 = l1.next
+            if l2: l2 = l2.next
         
-        while p or q:
-            x = p.val if p else 0
-            y = q.val if q else 0
-            total = x + y + carry
-            carry = total // 10
-            curr.next = ListNode(total % 10)
-            curr = curr.next
-            if p: p = p.next
-            if q: q = q.next
-                
-        if carry > 0:
-            curr.next = ListNode(carry)
-                
+        if carry:
+            head.next = ListNode(carry)
+        
         return dummy.next
