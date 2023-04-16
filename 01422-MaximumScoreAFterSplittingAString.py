@@ -8,11 +8,11 @@ class Solution:
         Time: O(n)
         Space: O(1)
         """
-        max_score = 0
-        
+        max_score = -1
+
         for i in range(1, len(s)):
-            left = s[:i].count("0")
-            right = s[i:].count("1")
-            max_score = max(max_score, left + right)
-            
+            print(s[:i])
+            score = s[:i].count('0') + s[i:].count('1')
+            max_score = max(max_score, score)
+        
         return max_score
