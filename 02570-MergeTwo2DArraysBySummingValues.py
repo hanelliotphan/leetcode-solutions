@@ -5,26 +5,19 @@ class Solution:
         """
         Logic: Hash Map
 
-        Time: O(n*logn)
-        Space: O(n)
+        Time: O((n+m)*log(n+m))
+        Space: O(n+m)
         """
-        id_sum = {}
         res = []
+        counter = collections.defaultdict(int)
 
         for id, val in nums1:
-            if id not in id_sum:
-                id_sum[id] = val
-            else:
-                id_sum[id] += val
-
+            counter[id] += val
+        
         for id, val in nums2:
-            if id not in id_sum:
-                id_sum[id] = val
-            else:
-                id_sum[id] += val
-
-        for k, v in id_sum.items():
-            print([k, v])
+            counter[id] += val
+        
+        for k, v in counter.items():
             res.append([k, v])
-
+        
         return sorted(res, key=lambda x: x[0])
