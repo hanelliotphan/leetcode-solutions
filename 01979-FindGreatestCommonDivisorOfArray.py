@@ -9,10 +9,15 @@ class Solution:
         mn = min(nums)
         mx = max(nums)
         
-        if mx % mn == 0: return mn
-        
-        for i in range(mn, 0, -1):
-            if mn % i == 0 and mx % i == 0:
-                return i
+        if mn == mx:
+            return mn
             
-        return 1
+        gcd = 1
+
+        for i in range(1, mx+1):
+            if i > mn:
+                break
+            if mx % i == 0 and mn % i == 0:
+                gcd = max(gcd, i)
+        
+        return gcd
