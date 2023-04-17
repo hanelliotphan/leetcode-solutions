@@ -1,25 +1,28 @@
-# https://leetcode.com/problems/reverse-vowels-of-a-string/
+# https://leetcode.com/problems/reverse-vowels-of-a-string/description/
 
 class Solution:
     def reverseVowels(self, s: str) -> str:
         """
-        Logic: Stack of vowels
+        Logic: Two Pointers
         
         Time: O(n)
         Space: O(n)
         """
-        vowels = []
-        
-        for c in s:
-            if c in "aeiou" or c in "AEIOU":
-                vowels.append(c)
-        
-        new_word = ""
-        for c in s:
-            if c not in "aeiou" and c not in "AEIOU":
-                new_word += c
+        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        i = 0; j = len(s)-1
+        sa = [ch for ch in s]
+
+        while i < j:
+            if sa[i] in vowels and sa[j] in vowels:
+                sa[i], sa[j] = sa[j], sa[i]
+                i += 1
+                j -= 1
+            elif sa[i] in vowels and sa[j] not in vowels:
+                j -= 1
+            elif sa[i] not in vowels and sa[j] in vowels:
+                i += 1
             else:
-                new_word += vowels[-1]
-                vowels.pop()
-        
-        return new_word
+                i += 1
+                j -= 1
+            
+        return "".join(sa)
