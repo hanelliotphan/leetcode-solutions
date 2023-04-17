@@ -3,14 +3,20 @@
 class Solution:
     def findTheArrayConcVal(self, nums: List[int]) -> int:
         """
-        Logic: Brute Force
+        Logic: Two Pointers
 
         Time: O(n)
         Space: O(1)
         """
-        res = 0 if len(nums) % 2 == 0 else nums[len(nums)//2]
+        res = 0 
+        i = 0; j = len(nums)-1
 
-        for i in range(len(nums)//2):
-            res += int(str(nums[i]) + str(nums[len(nums)-1-i]))
-
-        return res
+        while i < j:
+            res += int(str(nums[i])+str(nums[j]))
+            i += 1
+            j -= 1
+        
+        if i == j:
+            res += nums[i]
+        
+        return resa
