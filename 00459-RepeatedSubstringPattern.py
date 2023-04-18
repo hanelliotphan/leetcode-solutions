@@ -1,16 +1,16 @@
+# https://leetcode.com/problems/repeated-substring-pattern/description/
+
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         """
-        Logic: Take a substring of s and check when it's duplicated
-                by len(s) // i, it can be equal to s
-                
-        Time: O(n*sqrt(n))
-        Space: O(n)
-        """
-        n = len(s)
+        Logic: Brute Force
         
-        for i in range(1, n//2+1):
-            if n % i == 0 and s[:i]*(n//i) == s:
+        Time: O(n)
+        Space: O(1)
+        """
+        for i in range(1, len(s)//2+1):
+            w = len(s) // i
+            if len(s) % i == 0 and s[:i]*w == s:
                 return True
-            
+        
         return False
