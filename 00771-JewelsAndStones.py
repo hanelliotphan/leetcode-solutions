@@ -6,14 +6,12 @@ class Solution:
         Logic: Hash Map/Counter
         
         Time: O(j)
-        Space: O(max(s, j))
+        Space: O(s)
         """
-        j = collections.Counter(jewels)
-        s = collections.Counter(stones)
-        count = 0
+        stone_counter = collections.Counter(stones)
+        res = 0
+
+        for j in jewels:
+            res += stone_counter[j]
         
-        for k in j.keys():
-            if k in s.keys():
-                count += s[k]
-                
-        return count
+        return res
