@@ -8,14 +8,14 @@ class Solution:
         Time: O(n)
         Space: O(1)
         """
-        curr_min_idx = -1
-        curr_max_count = 0
+        curr_max_count = float("-inf")
+        curr_idx = float("inf")
 
         for i in range(len(mat)):
-            count = mat[i].count(1)
-            if count > curr_max_count:
-                curr_max_count = count
-                curr_min_idx = i
-                
+            one_count = mat[i].count(1)
+            print(one_count)
+            if one_count > curr_max_count:
+                curr_max_count = one_count
+                curr_idx = i
         
-        return [curr_min_idx, curr_max_count] if curr_min_idx != -1 else [0, 0]
+        return [curr_idx, curr_max_count]
