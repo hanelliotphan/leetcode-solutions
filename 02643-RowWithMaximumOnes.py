@@ -13,7 +13,6 @@ class Solution:
 
         for i in range(len(mat)):
             one_count = mat[i].count(1)
-            print(one_count)
             if one_count > curr_max_count:
                 curr_max_count = one_count
                 curr_idx = i
