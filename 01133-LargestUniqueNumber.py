@@ -9,10 +9,10 @@ class Solution:
         Space: O(n)
         """
         counter = collections.Counter(nums)
-        largest = float("-inf")
-        
+        max_unique = -1
+
         for k, v in counter.items():
-            if k > largest and v == 1:
-                largest = k
+            if v == 1:
+                max_unique = max(max_unique, k)
         
-        return largest if largest != float("-inf") else -1
+        return max_unique
