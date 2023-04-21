@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/
+# https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/description/
 
 class Solution:
     def countGoodSubstrings(self, s: str) -> int:
@@ -9,18 +9,9 @@ class Solution:
         Space: O(1)
         """
         count = 0
-        
+
         for i in range(len(s)-2):
-            visited = set()
-            substring = s[i:i+3]
-            flag = 0
-            for ch in substring:
-                if ch not in visited:
-                    visited.add(ch)
-                else:
-                    flag = 1
-                    break
-            if flag == 1: continue
-            else: count += 1
-                
+            if s[i] != s[i+1] and s[i] != s[i+2] and s[i+1] != s[i+2]:
+                count += 1
+        
         return count
