@@ -1,16 +1,11 @@
+# https://leetcode.com/problems/percentage-of-letter-in-string/description/
+
 class Solution:
     def percentageLetter(self, s: str, letter: str) -> int:
         """
-        Logic: Straightforward
+        Logic: Brute Force with Count (1-liner)
         
         Time: O(n)
         Space: O(1)
         """
-        n = len(s)
-        count = 0
-        
-        for ch in s:
-            if ch == letter:
-                count += 1
-        
-        return count*100 // n
+        return floor(s.count(letter)/len(s) * 100)
