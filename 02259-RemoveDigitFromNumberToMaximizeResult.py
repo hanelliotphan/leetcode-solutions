@@ -6,10 +6,10 @@ class Solution:
         Time: O(n)
         Space: O(1)
         """
-        res = 0
+        max_num = float("-inf")
+
+        for i, n in enumerate(number):
+            if n == digit:
+                max_num = max(max_num, int(number[:i]+number[i+1:]))
         
-        for i, d in enumerate(list(number)):
-            if d == digit:
-                res = max(res, int(number[:i] + number[i+1:]))
-                
-        return str(res)
+        return str(max_num)
