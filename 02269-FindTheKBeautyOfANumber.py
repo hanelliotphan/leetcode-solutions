@@ -12,7 +12,6 @@ class Solution:
         num_s = str(num)
         
         for i in range(len(num_s)-k+1):
-            print(num_s[i:i+k])
             if int(num_s[i:i+k]) != 0 and num % int(num_s[i:i+k]) == 0:
                 count += 1
         
