@@ -3,13 +3,17 @@ class Solution:
         """
         Logic: Hash Map
         
-        Time: O(n)
+        Time: O(m+n)
         Space: O(n)
         """
-        indices = {}
+        indices = collections.defaultdict(int)
+
+        for i, n in enumerate(nums2):
+            indices[n] = i
         
-        for i in range(len(nums2)):
-            if nums2[i] not in indices:
-                indices[nums2[i]] = i
-                
-        return [indices[n] for n in nums1]
+        res = []
+        
+        for n in nums1:
+            res.append(indices[n])
+        
+        return res
