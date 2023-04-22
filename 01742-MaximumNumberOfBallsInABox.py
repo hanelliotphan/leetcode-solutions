@@ -1,22 +1,23 @@
+# https://leetcode.com/problems/maximum-number-of-balls-in-a-box/description/
+
 class Solution:
     def countBalls(self, lowLimit: int, highLimit: int) -> int:
         """
-        Logic: Hash Map
+        Logic: Hash Map/Counter
         
         Time: O(n)
         Space: O(n)
         """
-        ball_box_map = dict()
+        box_start = 1
+        box_counter = collections.defaultdict(int)
+        max_box = 0
+
+        for n in range(lowLimit, highLimit+1):
+            d = 0
+            while n > 0:
+                d += n % 10
+                n //= 10
+            box_counter[d] += 1
+            max_box = max(max_box, box_counter[d])
         
-        for ball in range(lowLimit, highLimit+1):
-            digits = []
-            while ball > 0:
-                digits.append(ball % 10)
-                ball //= 10
-            box = sum(digits)
-            if box not in ball_box_map:
-                ball_box_map[box] = 1
-            else:
-                ball_box_map[box] += 1
-                
-        return max(ball_box_map.values())
+        return max_box
