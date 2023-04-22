@@ -1,16 +1,19 @@
+# https://leetcode.com/problems/find-the-k-beauty-of-a-number/description/
+
 class Solution:
     def divisorSubstrings(self, num: int, k: int) -> int:
         """
         Logic: Brute Force
         
-        Time: O(n) --> n = number of digits in `num`
-        Space: O(n)
+        Time: O(n)
+        Space: O(1)
         """
-        n_s = str(num)
         count = 0
+        num_s = str(num)
         
-        for i in range(len(n_s)-k+1):
-            if int(n_s[i:i+k]) != 0 and num % int(n_s[i:i+k]) == 0:
+        for i in range(len(num_s)-k+1):
+            print(num_s[i:i+k])
+            if int(num_s[i:i+k]) != 0 and num % int(num_s[i:i+k]) == 0:
                 count += 1
-                
+        
         return count
