@@ -6,13 +6,16 @@ class Solution:
         Logic: Hash Map/Counter
         
         Time: O(r)
-        Space: O(max(r, m))
+        Space: O(r+m)
         """
-        c1 = collections.Counter(ransomNote)
-        c2 = collections.Counter(magazine)
-        
-        for k, v in c1.items():
-            if v > c2[k]:
+        if len(ransomNote) > len(magazine):
+            return False
+
+        ransom_count = collections.Counter(ransomNote)
+        mag_count = collections.Counter(magazine)
+
+        for k, v in ransom_count.items():
+            if mag_count[k] < v:
                 return False
-            
+        
         return True
