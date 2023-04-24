@@ -1,20 +1,22 @@
+# https://leetcode.com/problems/check-if-word-equals-summation-of-two-words/description/
+
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
         """
-        Logic: Brute Force
+        Logic: Brute Force with ASCII
         
-        Time: O(f+s+t)
-        Space: O(1)
+        Time: O(a+b+c)
+        Space: O(a+b+c)
         """
-        fwn = swn = twn = ""
-        
+        w1 = w2 = w3 = ""
+
         for ch in firstWord:
-            fwn += str((ord(ch) - ord('a')))
+            w1 += str(ord(ch)-ord('a'))
         
         for ch in secondWord:
-            swn += str((ord(ch) - ord('a')))
-            
+            w2 += str(ord(ch)-ord('a'))
+        
         for ch in targetWord:
-            twn += str((ord(ch) - ord('a')))
-            
-        return True if int(fwn) + int(swn) == int(twn) else False
+            w3 += str(ord(ch)-ord('a'))
+        
+        return int(w1) + int(w2) == int(w3)
