@@ -1,16 +1,19 @@
 class Solution:
     def findClosestNumber(self, nums: List[int]) -> int:
         """
-        Logic: Straightforward  
+        Logic: Brute Force
         
         Time: O(n)
         Space: O(1)
         """
-        curr_closest = nums[0]
+        closest = abs(nums[0])
+        largest = nums[0]
         
         for n in nums:
-            if abs(n) < abs(curr_closest) \
-            or (abs(n) ==  abs(curr_closest) and curr_closest <= n):
-                curr_closest = n
+            if abs(n) < closest:
+                closest = abs(n)
+                largest = n
+            elif abs(n) == closest:
+                largest = max(largest, n)
         
-        return curr_closest
+        return largest
