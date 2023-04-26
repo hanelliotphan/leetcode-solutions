@@ -1,17 +1,16 @@
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         """
-        Logic: One pointer
+        Logic: Brute Force
         
-        Time: O(n) -- n == number of characters in `s`
+        Time: O(n)
         Space: O(1)
         """
-        words_met = 0
+        res = ""
+
+        for ch in s:
+            if ch == " ": k -= 1
+            if k == 0: break
+            res += ch
         
-        for i, c in enumerate(s):
-            if c == " ":
-                words_met += 1
-                if words_met == k:
-                    return s[:i]
-        
-        return s
+        return res
