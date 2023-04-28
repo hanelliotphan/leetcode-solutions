@@ -1,15 +1,14 @@
+# https://leetcode.com/problems/running-sum-of-1d-array/description/
+
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         """
-        Logic: Straightforward loop
+        Logic: Brute Force
         
         Time: O(n)
-        Space: O(1) -- reuse the parsed-in array
+        Space: O(1)
         """
-        total = nums[0]
-        
         for i in range(1, len(nums)):
-            nums[i] += total
-            total = nums[i]
-            
+            nums[i] += nums[i-1]
+
         return nums
