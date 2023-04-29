@@ -1,20 +1,22 @@
+# https://leetcode.com/problems/maximum-number-of-pairs-in-array/description/
+
 class Solution:
     def numberOfPairs(self, nums: List[int]) -> List[int]:
         """
-        Logic: Hash Set / Counter / Divmod
+        Logic: Hash Map/Counter
         
         Time: O(n)
         Space: O(n)
         """
-        if len(nums) == 1: 
-            return [0, 1]
-        
         counter = collections.Counter(nums)
-        pairs = rem = 0
-        
-        for freq in counter.values():
-            pairs += freq // 2
-            rem += divmod(freq, 2)[1]
+        pairs = left = 0
+
+        for k, v in counter.items():
+            pairs += v // 2
+            if v % 2 == 0:
+                counter[k] = 0
+            else:
+                counter[k] = 1
+                left += 1
             
-        return [pairs, rem]
-            
+        return [pairs, left]
