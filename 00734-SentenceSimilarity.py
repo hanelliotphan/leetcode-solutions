@@ -5,7 +5,7 @@ class Solution:
         """
         Logic: Brute Force
 
-        Time: O(n)
+        Time: O(n*k)
         Space: O(1)
         """
         if len(sentence1) != len(sentence2):
