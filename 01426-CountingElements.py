@@ -3,15 +3,16 @@
 class Solution:
     def countElements(self, arr: List[int]) -> int:
         """
-        Logic: Straightforward
+        Logic: Hash Map/Counter
         
         Time: O(n)
-        Space: O(1)
+        Space: O(n)
         """
-        count = 0
+        counter = collections.Counter(arr)
+        res = 0
+
+        for n in arr:
+            if counter[n+1]:
+                res += 1
         
-        for i in arr:
-            if i + 1 in arr:
-                count += 1
-                
-        return count
+        return res
