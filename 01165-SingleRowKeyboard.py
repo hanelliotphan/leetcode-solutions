@@ -1,16 +1,18 @@
+# https://leetcode.com/problems/single-row-keyboard/description/
+
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
         """
-        Logic: Index
+        Logic: Hash Map
         
-        Time: O(n) -- n = len(word)
-        Space: O(1)
+        Time: O(w)
+        Space: O(26) --> O(1)
         """
-        curr_pos = res = 0
-        
+        indices = {k: v for v, k in enumerate(keyboard)}
+        curr_pos = time = 0
+
         for ch in word:
-            idx = keyboard.index(ch)
-            res += (abs(idx-curr_pos))
-            curr_pos = idx
-            
-        return res
+            time += abs(indices[ch]-curr_pos)
+            curr_pos = indices[ch]
+        
+        return time
