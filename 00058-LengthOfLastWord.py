@@ -3,17 +3,18 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         """
-        Logic: Two pointers
+        Logic: Brute Force (String Reverse Loop)
         
-        Time: O(m) for m is length of last word
+        Time: O(n)
         Space: O(1)
         """
-        r = len(s) - 1
-        while r > 0 and s[r] == " ":
-            r -= 1
-            
-        l = r
-        while l >= 0 and s[l] != " ":
-            l -= 1
-            
-        return r-l
+        i = len(s)
+        l = 0
+
+        while i > 0:
+            i -= 1
+            if s[i] != " ": l += 1
+            else:
+                if l > 0: return l
+        
+        return l
