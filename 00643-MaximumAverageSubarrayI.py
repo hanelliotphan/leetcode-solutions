@@ -8,11 +8,10 @@ class Solution:
         Time: O(n)
         Space: O(1)
         """
-        all_max = curr_max = sum(nums[:k])
-        n = len(nums)
+        max_sum = curr_sum = sum(nums[:k])
         
         for i in range(k, len(nums)):
-            curr_max += (nums[i] - nums[i-k])
-            all_max = max(all_max, curr_max)
+            curr_sum += nums[i]-nums[i-k]
+            max_sum = max(max_sum, curr_sum)
         
-        return all_max / k
+        return max_sum / k
