@@ -3,21 +3,23 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """
-        Logic: Two Pointers backwards
-        
+        Logic: Two pointers (backwards)
+
         Time: O(n)
         Space: O(n)
         """
         n = len(nums)
-        l, r = 0, n-1
-        res = [0] * n
+        i = 0
+        j = n-1
+        res = [0]*n
         
-        for i in range(n-1, -1, -1):
-            if abs(nums[l]) >= abs(nums[r]):
-                res[i] = nums[l] * nums[l]
-                l += 1
+        for k in range(n-1, -1, -1):
+            if abs(nums[i]) < abs(nums[j]):
+                square = nums[j]
+                j -= 1
             else:
-                res[i] = nums[r] * nums[r]
-                r -= 1
+                square = nums[i]
+                i += 1
+            res[k] = square * square
         
         return res
