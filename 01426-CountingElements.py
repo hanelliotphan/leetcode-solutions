@@ -8,11 +8,11 @@ class Solution:
         Time: O(n)
         Space: O(n)
         """
-        counter = collections.Counter(arr)
-        res = 0
-
-        for n in arr:
-            if counter[n+1]:
-                res += 1
+        num_count = collections.Counter(arr)
+        count = 0
         
-        return res
+        for n in arr:
+            if num_count[n+1]:
+                count += 1
+        
+        return count
