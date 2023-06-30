@@ -1,23 +1,19 @@
+# https://leetcode.com/problems/defanging-an-ip-address/description/
+
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         """
-        Logic: List of IP figures
-        
+        Logic: Brute Force
+
         Time: O(n)
-        Space: O(1) --> 4 figures only
+        Space: O(1)
         """
-        i = 0
-        res = []
-        curr_str = ""
+        res = ""
         
-        while i < len(address):
-            if address[i] != '.':
-                curr_str += address[i]
+        for ch in address:
+            if ch != ".":
+                res += ch
             else:
-                res.append(curr_str)
-                curr_str = ""
-            i += 1
+                res += "[.]"
         
-        res.append(curr_str)
-        
-        return "[.]".join(res)
+        return res
