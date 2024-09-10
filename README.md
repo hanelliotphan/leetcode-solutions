@@ -1,5 +1,7 @@
 # Leetcode Solutions
 
+My Leetcode profile: https://leetcode.com/u/hanelliotphan/
+
 ## Brief Description
 This is the collection of my solutions for Leetcode problems. They might not be 
 the most optimal ways to solve the problems, but it is honest work :) Feel free 
