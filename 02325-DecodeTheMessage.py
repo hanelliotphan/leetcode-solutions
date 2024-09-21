@@ -6,21 +6,16 @@ class Solution:
         Time: O(m+n)
         Space: O(m)
         """
-        key_mapping = dict()
-        key_str = ''.join(key.split(" "))
-        alphabet = "abcdefghijklmnopqrstuvwxyz"
-        idx = 0
-        
-        for k in key_str:
-            if k not in key_mapping:
-                key_mapping[k] = alphabet[idx]
-                idx += 1
-                
-        decoded_msg = ""
-        for m in message:
-            if m == " ":
-                decoded_msg += m
-            else:
-                decoded_msg += key_mapping[m]
+        hash_map = {" ": " "}
+        curr = ord('a')
+        res = ''
+
+        for k in key:
+            if k not in hash_map:
+                hash_map[k] = chr(curr)
+                curr += 1
             
-        return decoded_msg
+        for m in message:
+            res += hash_map[m]
+        
+        return res
